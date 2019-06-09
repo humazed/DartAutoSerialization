@@ -79,19 +79,19 @@ class DartClassGenerator {
                 target.writeText("\nimport 'package:json_annotation/json_annotation.dart';\n")
                 target.writeText("\npart '${nodeWrapper.sneakCaseName}.g.dart';\n")
 
-                buffer.writeText("\n  factory ${nodeWrapper.className}.fromJson(Map<String, dynamic> map) => _$${nodeWrapper.className}(json);\n")
-                buffer.writeText("\n  Map<String, dynamic> toJson() => _$${nodeWrapper.className}(this);\n")
+                buffer.writeText("\n\tfactory ${nodeWrapper.className}.fromJson(Map<String, dynamic> json) => _$${nodeWrapper.className}FromJson(json);\n")
+                buffer.writeText("\n\tMap<String, dynamic> toJson() => _$${nodeWrapper.className}ToJson(this);\n")
 
-                buffer.writeText("\n  static const fromJsonFactory = _$${nodeWrapper.className};\n")
+                buffer.writeText("\n\tstatic const fromJsonFactory = _$${nodeWrapper.className}FromJson;\n")
 
-                buffer.writeText("\n  ${nodeWrapper.className}();\n")
+                buffer.writeText("\n\t${nodeWrapper.className}();\n")
 
-                buffer.writeText("\n  @override\n  String toString() {\n\treturn '${nodeWrapper.className}{")
+                buffer.writeText("\n  @override\n  String toString() {\n\t\treturn '${nodeWrapper.className}{")
                 val toStringContent =
                     nodeWrapper.node?.fields()?.asSequence()?.toList()?.map { "${it.key}: $${it.key}" }
                         ?.joinToString(", ")
                 buffer.writeText(toStringContent ?: "")
-                buffer.writeText("}';  \n  }\n")
+                buffer.writeText("}';\t\n\t}\n")
 
                 buffer.writeText("}")
                 buffer.close()
