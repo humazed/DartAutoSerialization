@@ -52,7 +52,7 @@ class DartClassGenerator {
 
             buffer.writeText("\n@JsonSerializable()\nclass ${nodeWrapper.className} {\n")
             try {
-                target.writeText("library '${nodeWrapper.sneakCaseName};\n\n")
+                target.writeText("library ${nodeWrapper.sneakCaseName};\n\n")
 
                 nodeWrapper.node?.fields()?.forEach {
                     nodeInfo = processNode(buffer, it.value, it.key, finalMode)
