@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>com.github.humazed.AutoJsonSerialization</id>
-    <name>AutoJsonSerialization</name>
+    <id>com.github.humazed.DartAutoSerialization</id>
+    <name>DartAutoSerialization</name>
     <vendor email="humazed@gmail.com" url="https://github.com/humazed">Humazed</vendor>
 
     <description><![CDATA[
