@@ -18,16 +18,14 @@ public class Json2DartForm {
     public JTextField fileName;
     public JLabel fileNameLabel;
 
-    private OnGenerateClicked listener;
 
     public void setOnGenerateListener(OnGenerateClicked listener) {
-        this.listener = listener;
         generateButton.addActionListener(action -> {
-            if (this.listener != null) {
-                this.listener.onClicked(
-                    fileName != null ? fileName.getText() + "_response" : "response",
-                    editor != null ? editor.getText() : "",
-                    finalFields != null && finalFields.isSelected()
+            if (listener != null) {
+                listener.onClicked(
+                        fileName != null ? fileName.getText() + "_response" : "response",
+                        editor != null ? editor.getText() : "",
+                        finalFields != null && finalFields.isSelected()
                 );
             }
         });
@@ -39,7 +37,7 @@ public class Json2DartForm {
         editor.setCodeFoldingEnabled(true);
         try {
             Theme theme = Theme.load(getClass().getResourceAsStream(
-                "/org/fife/ui/rsyntaxtextarea/themes/monokai.xml"));
+                    "/org/fife/ui/rsyntaxtextarea/themes/monokai.xml"));
             theme.apply(editor);
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -81,9 +79,6 @@ public class Json2DartForm {
         rootView.add(fileNameLabel, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
-    /**
-     * @noinspection ALL
-     */
     public JComponent $$$getRootComponent$$$() {
         return rootView;
     }

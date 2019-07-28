@@ -13,11 +13,15 @@ class JsonToDartAction(
 ) : AnAction("Convert json to dart") {
 
     override fun actionPerformed(event: AnActionEvent) {
+        // save important info from event because after showing the dialog they can't be access then and idea will throw.
+        val destinyVf = event.getData(CommonDataKeys.VIRTUAL_FILE)
+        val project = event.project
+
         DialogBuilder().apply {
             val form = Json2DartForm()
             form.setOnGenerateListener { fileName, json, finalFields ->
                 window.dispose()
-                generatorDelegate.runGeneration(event, fileName, json, finalFields)
+                generatorDelegate.runGeneration(fileName, json, finalFields, destinyVf, project)
             }
             setCenterPanel(form.rootView)
             setTitle("Json2Dart")
