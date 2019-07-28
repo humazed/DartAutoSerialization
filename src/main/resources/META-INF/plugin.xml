@@ -19,7 +19,7 @@
 
     <actions>
         <action class="json2dart.JsonToDartAction" id="json2dart.JsonToDartAction.inNew"
-                text="Convert json to dart">
+                text="Convert Json to Dart">
             <add-to-group group-id="NewGroup" anchor="last"/>
             <keyboard-shortcut keymap="$default" first-keystroke="alt D"/>
         </action>
