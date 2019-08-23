@@ -4,7 +4,7 @@
     <vendor email="humazed@gmail.com" url="https://github.com/humazed">Humazed</vendor>
 
     <description><![CDATA[
-    Add a serialization function to generated classes..<br>
+    Add a serialization function to generated classes.<br>
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
