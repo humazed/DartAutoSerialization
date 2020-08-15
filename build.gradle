@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.github.humazed'
-version '1.0.9'
+version '1.0.10'
 
 publishPlugin {
     token intellijPublishToken
@@ -30,10 +30,10 @@ intellij {
     version '2020.2'
 }
 patchPluginXml {
-    sinceBuild '172'
-    untilBuild '192'
+    sinceBuild "193"
+    untilBuild "202.*"
     changeNotes """
-      support intellij 192.*<br>
+      support intellij 202.*<br>
       """
 }
 
